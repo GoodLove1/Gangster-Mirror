@@ -3,8 +3,8 @@ from asyncio import wait_for, Event, wrap_future, gather
 from functools import partial
 from logging import getLogger
 from natsort import natsorted
-from pyrogram.filters import regex, user
-from pyrogram.handlers import CallbackQueryHandler
+from hydrogram.filters import regex, user
+from hydrogram.handlers import CallbackQueryHandler
 from tenacity import RetryError
 from time import time
 
