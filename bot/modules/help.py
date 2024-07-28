@@ -1,5 +1,5 @@
-from pyrogram.filters import regex
-from pyrogram.handlers import CallbackQueryHandler
+from hydrogram.filters import regex
+from hydrogram.handlers import CallbackQueryHandler
 
 from bot import bot
 from bot.helper.ext_utils.bot_utils import COMMAND_USAGE
