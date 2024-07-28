@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 from feedparser import parse as feedparse
 from functools import partial
 from io import BytesIO
-from pyrogram.filters import command, regex, create
-from pyrogram.handlers import MessageHandler, CallbackQueryHandler
+from hydrogram.filters import command, regex, create
+from hydrogram.handlers import MessageHandler, CallbackQueryHandler
 from time import time
 
 from bot import scheduler, rss_dict, LOGGER, DATABASE_URL, config_dict, bot
