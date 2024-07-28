@@ -1,5 +1,5 @@
-from pyrogram.filters import command
-from pyrogram.handlers import MessageHandler
+from hydrogram.filters import command
+from hydrogram.handlers import MessageHandler
 
 from bot import user_data, DATABASE_URL, bot
 from bot.helper.ext_utils.bot_utils import update_user_ldata
