@@ -1,5 +1,5 @@
-from pyrogram.filters import command
-from pyrogram.handlers import MessageHandler
+from hydrogram.filters import command
+from hydrogram.handlers import MessageHandler
 
 from bot import bot, LOGGER
 from bot.helper.ext_utils.bot_utils import sync_to_async, new_task
