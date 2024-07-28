@@ -1192,6 +1192,124 @@ async def load_config():
     if len(UPSTREAM_BRANCH) == 0:
         UPSTREAM_BRANCH = "master"
 
+    NZB_ENABLED = environ.get('NZB_ENABLED', '')
+    NZB_ENABLED = NZB_ENABLED.lower() == 'true'
+
+
+    ####### SERVICES ####### 
+    CLONE_ENABLED = environ.get('CLONE_ENABLED', '')
+    CLONE_ENABLED = CLONE_ENABLED.lower() == 'true'
+
+    DISABLE_DRIVE_LINK = environ.get('DISABLE_DRIVE_LINK', '')
+    DISABLE_DRIVE_LINK = DISABLE_DRIVE_LINK.lower() == 'true'
+
+    GDRIVE_ENABLED = environ.get('GDRIVE_ENABLED', '')
+    GDRIVE_ENABLED = GDRIVE_ENABLED.lower() == 'true'
+
+    JD_ENABLED = environ.get('JD_ENABLED', '')
+    JD_ENABLED = JD_ENABLED.lower() == 'true'
+
+    LEECH_ENABLED = environ.get('LEECH_ENABLED', '')
+    LEECH_ENABLED = LEECH_ENABLED.lower() == 'true'
+
+    MEGA_ENABLED = environ.get('MEGA_ENABLED', '')
+    MEGA_ENABLED = MEGA_ENABLED.lower() == 'true'
+
+    MIRROR_ENABLED = environ.get('MIRROR_ENABLED', '')
+    MIRROR_ENABLED = MIRROR_ENABLED.lower() == 'true'
+
+    PAID_SERVICE = environ.get('PAID_SERVICE', '')
+    if len(PAID_SERVICE) == 0:
+       PAID_SERVICE = ''
+
+    SA_MAIL = environ.get('SA_MAIL', '')
+    if len(SA_MAIL) == 0:
+       SA_MAIL = ''
+
+    STOP_DUPLICATE_LEECH = environ.get('STOP_DUPLICATE_LEECH', '')
+    STOP_DUPLICATE_LEECH = STOP_DUPLICATE_LEECH.lower() == 'true'
+
+    TORRENT_ENABLED = environ.get('TORRENT_ENABLED', '')
+    TORRENT_ENABLED = TORRENT_ENABLED.lower() == 'true'
+
+    USER_TD_ENABLED = environ.get('USER_TD_ENABLED', '')
+    USER_TD_ENABLED = USER_TD_ENABLED.lower() == 'true'
+
+    YTDLP_ENABLED = environ.get('YTDLP_ENABLED', '')
+    YTDLP_ENABLED = YTDLP_ENABLED.lower() == 'true'
+
+####### LIMITS  ####### 
+    CLONE_LIMIT = environ.get('CLONE_LIMIT', '')
+    CLONE_LIMIT = '' if len(CLONE_LIMIT) == 0 else float(CLONE_LIMIT)
+
+    GDRIVE_LIMIT = environ.get('GDRIVE_LIMIT', '')
+    GDRIVE_LIMIT = '' if len(GDRIVE_LIMIT) == 0 else float(GDRIVE_LIMIT)
+
+    LEECH_LIMIT = environ.get('LEECH_LIMIT', '')
+    LEECH_LIMIT = '' if len(LEECH_LIMIT) == 0 else float(LEECH_LIMIT)
+
+    MEGA_LIMIT = environ.get('MEGA_LIMIT', '')
+    MEGA_LIMIT = '' if len(MEGA_LIMIT) == 0 else float(MEGA_LIMIT)
+
+    MIRROR_LIMIT = environ.get('MIRROR_LIMIT', '')
+    MIRROR_LIMIT = '' if len(MIRROR_LIMIT) == 0 else float(MIRROR_LIMIT)
+
+    STORAGE_THRESHOLD = environ.get('STORAGE_THRESHOLD', '')
+    STORAGE_THRESHOLD = '' if len(STORAGE_THRESHOLD) == 0 else float(STORAGE_THRESHOLD)
+
+    TORRENT_LIMIT = environ.get('TORRENT_LIMIT', '')
+    TORRENT_LIMIT = '' if len(TORRENT_LIMIT) == 0 else float(TORRENT_LIMIT)
+
+    YTDLP_LIMIT = environ.get('YTDLP_LIMIT', '')
+    YTDLP_LIMIT = '' if len(YTDLP_LIMIT) == 0 else float(YTDLP_LIMIT)
+
+####### BOT TOOLS ####### 
+    BLACKLIST_FILE_KEYWORDS = environ.get('BLACKLIST_FILE_KEYWORDS', '')
+    if len(BLACKLIST_FILE_KEYWORDS) > 0:
+       fx = BLACKLIST_FILE_KEYWORDS.split()
+       for x in fx:
+           x = x.lstrip('.')
+           GLOBAL_BLACKLIST_FILE_KEYWORDS.append(x.strip().lower())
+
+    BOT_MAX_TASKS = environ.get('BOT_MAX_TASKS', '')
+    BOT_MAX_TASKS = int(BOT_MAX_TASKS) if BOT_MAX_TASKS.isdigit() else ''
+
+    BOT_PM = environ.get('BOT_PM', '')
+    BOT_PM = BOT_PM.lower() == 'true'
+
+    DELETE_LINKS = environ.get('DELETE_LINKS', '')
+    DELETE_LINKS = DELETE_LINKS.lower() == 'true'
+
+    FSUB_IDS = environ.get('FSUB_IDS', '')
+    if len(FSUB_IDS) == 0:
+        FSUB_IDS = ''
+
+    SAFE_MODE = environ.get('SAFE_MODE', '')
+    if len(SAFE_MODE) == 0:
+        log_warning('SAFE_MODE Is Not Enabled')
+        SAFE_MODE = ''
+
+    SET_COMMANDS = environ.get('SET_COMMANDS', '')
+    SET_COMMANDS = SET_COMMANDS.lower() == 'true'
+
+    TOKEN_TIMEOUT = environ.get('TOKEN_TIMEOUT', '')
+    TOKEN_TIMEOUT = '' if len(TOKEN_TIMEOUT) == 0 else float(TOKEN_TIMEOUT)
+
+    USER_MAX_TASKS = environ.get('USER_MAX_TASKS', '')
+    USER_MAX_TASKS = int(USER_MAX_TASKS) if USER_MAX_TASKS.isdigit() else ''
+
+####### UI THEME ####### 
+    IMAGES = environ.get('IMAGES', '')
+    IMAGES = (IMAGES.replace("'", '').replace('"', '').replace('[', '').replace(']', '').replace(",", "")).split()
+
+    STATUS_HEADER = environ.get('STATUS_HEADER', '')
+    if len(STATUS_HEADER) == 0:
+        STATUS_HEADER = ''
+
+    THEME_ENABLED = environ.get('THEME_ENABLED', '')
+    if len(THEME_ENABLED) == 0:
+        THEME_ENABLED = ''
+
     DRIVES_IDS.clear()
     DRIVES_NAMES.clear()
     INDEX_URLS.clear()
@@ -1270,6 +1388,40 @@ async def load_config():
             "USE_SERVICE_ACCOUNTS": USE_SERVICE_ACCOUNTS,
             "WEB_PINCODE": WEB_PINCODE,
             "YT_DLP_OPTIONS": YT_DLP_OPTIONS,
+                "CLONE_ENABLED": CLONE_ENABLED,
+    "DISABLE_DRIVE_LINK": DISABLE_DRIVE_LINK,
+    "GDRIVE_ENABLED": GDRIVE_ENABLED,
+    "JD_ENABLED": JD_ENABLED,
+    "LEECH_ENABLED": LEECH_ENABLED,
+    "MEGA_ENABLED": MEGA_ENABLED,
+    "MIRROR_ENABLED": MIRROR_ENABLED,
+    "PAID_SERVICE": PAID_SERVICE,
+    "SA_MAIL": SA_MAIL,
+    "STOP_DUPLICATE_LEECH": STOP_DUPLICATE_LEECH,
+    "TORRENT_ENABLED": TORRENT_ENABLED,
+    "USER_TD_ENABLED": USER_TD_ENABLED,
+    "YTDLP_ENABLED": YTDLP_ENABLED,
+    "CLONE_LIMIT": CLONE_LIMIT,
+    "GDRIVE_LIMIT": GDRIVE_LIMIT,
+    "LEECH_LIMIT": LEECH_LIMIT,
+    "MEGA_LIMIT": MEGA_LIMIT,
+    "MIRROR_LIMIT": MIRROR_LIMIT,
+    "STORAGE_THRESHOLD": STORAGE_THRESHOLD,
+    "TORRENT_LIMIT": TORRENT_LIMIT,
+    "YTDLP_LIMIT": YTDLP_LIMIT,
+    "BLACKLIST_FILE_KEYWORDS": BLACKLIST_FILE_KEYWORDS,
+    "BOT_MAX_TASKS": BOT_MAX_TASKS,
+    "BOT_PM": BOT_PM,
+    "DELETE_LINKS": DELETE_LINKS,
+    "FSUB_IDS": FSUB_IDS,
+    "SAFE_MODE": SAFE_MODE,
+    "SET_COMMANDS": SET_COMMANDS,
+    "TOKEN_TIMEOUT": TOKEN_TIMEOUT,
+    "USER_MAX_TASKS": USER_MAX_TASKS,
+    "IMAGES": IMAGES,
+    "STATUS_HEADER": STATUS_HEADER,
+    "THEME_ENABLED": THEME_ENABLED,
+    "NZB_ENABLED": NZB_ENABLED,
         }
     )
 
