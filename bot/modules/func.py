@@ -42,7 +42,7 @@ from bot.helper.telegram_helper.message_utils import editMessage
 from bot.helper.mirror_leech_utils.gdrive_utils.search import gdSearch
 
 leech_data = {}
-bot_name = bot.me.username
+bot_name = "TamilloggersMLBot"
 
 
 async def edit_video_metadata(user_id, file_path):
