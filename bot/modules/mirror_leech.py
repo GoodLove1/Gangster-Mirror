@@ -1,7 +1,7 @@
 from aiofiles.os import path as aiopath, remove
 from base64 import b64encode
-from pyrogram.filters import command
-from pyrogram.handlers import MessageHandler
+from hydrogram.filters import command
+from hydrogram.handlers import MessageHandler
 from re import match as re_match
 
 from bot import bot, DOWNLOAD_DIR, LOGGER
