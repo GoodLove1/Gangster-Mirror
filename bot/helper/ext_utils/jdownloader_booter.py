@@ -5,7 +5,7 @@ from random import randint
 from asyncio import sleep
 from re import match
 
-from bot import config_dict, LOGGER, jd_lock, bot_name
+from bot import config_dict, LOGGER, jd_lock
 from bot.helper.ext_utils.bot_utils import (
     cmd_exec,
     new_task,
@@ -44,7 +44,7 @@ class JDownloader(Myjdapi):
         await cmd_exec(["pkill", "-9", "-f", "java"])
         self.device = None
         self.error = "Connecting... Try agin after couple of seconds"
-        self._device_name = f"{randint(0, 1000)}@{bot_name}"
+        self._device_name = f"{randint(0, 1000)}"
         if await path.exists("/JDownloader/logs"):
             LOGGER.info(
                 "Starting JDownloader... This might take up to 10 sec and might restart once if update available!"
