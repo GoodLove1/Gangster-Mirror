@@ -1,7 +1,7 @@
 from httpx import AsyncClient
 from html import escape
-from pyrogram.filters import command, regex
-from pyrogram.handlers import MessageHandler, CallbackQueryHandler
+from hydrogram.filters import command, regex
+from hydrogram.handlers import MessageHandler, CallbackQueryHandler
 from urllib.parse import quote
 
 from bot import bot, LOGGER, config_dict, qbittorrent_client
