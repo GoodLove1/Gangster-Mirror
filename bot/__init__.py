@@ -16,7 +16,7 @@ from logging import (
 from os import remove, path as ospath, environ
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from pyrogram import Client as tgClient, enums
+from hydrogram import Client as tgClient, enums
 from qbittorrentapi import Client as qbClient
 from sabnzbdapi import sabnzbdClient
 from socket import setdefaulttimeout
@@ -34,7 +34,7 @@ setdefaulttimeout(600)
 getLogger("qbittorrentapi").setLevel(INFO)
 getLogger("requests").setLevel(INFO)
 getLogger("urllib3").setLevel(INFO)
-getLogger("pyrogram").setLevel(ERROR)
+getLogger("hydrogram").setLevel(ERROR)
 getLogger("httpx").setLevel(ERROR)
 getLogger("pymongo").setLevel(ERROR)
 
