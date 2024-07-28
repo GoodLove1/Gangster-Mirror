@@ -1,5 +1,5 @@
 import asyncio
-from pyrogram import Client, filters
+from hydrogram import Client, filters
 from datetime import datetime
 from bot import bot
 @bot.on_message(filters.new_chat_members)
