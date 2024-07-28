@@ -1,8 +1,8 @@
 from httpx import AsyncClient
 from asyncio import wait_for, Event, wrap_future
 from functools import partial
-from pyrogram.filters import command, regex, user
-from pyrogram.handlers import MessageHandler, CallbackQueryHandler
+from hydrogram.filters import command, regex, user
+from hydrogram.handlers import MessageHandler, CallbackQueryHandler
 from time import time
 from yt_dlp import YoutubeDL
 
